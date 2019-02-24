@@ -50,7 +50,7 @@ function login(){
 function logout(){
 
   firebase.auth().signOut();
-  window.location = "kernion.html"
+  window.location = "index.html"
 
 }
 
