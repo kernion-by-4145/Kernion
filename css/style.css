@@ -343,4 +343,7 @@ button:hover, button:hover {
   background: #fff;
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
-  cursor: pointer;
+	cursor: pointer;}
+.divver{
+	max-width: 500px;
+	margin: auto;}
