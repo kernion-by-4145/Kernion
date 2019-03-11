@@ -53,6 +53,9 @@ function logout(){
   window.location = "index.html"
 
 }
+function di(){
+window.location = "css/Kernion.msi"
+}
 
 
 
