@@ -46,7 +46,7 @@ function login(){
 function logout(){
 
   firebase.auth().signOut();
-  window.location.replace("https://kernion-by-4145.github.io/Webserver/");
+  window.location.replace("https://kernion-by-4145.github.io/Kernion/");
 
 }
 
