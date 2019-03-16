@@ -46,7 +46,7 @@ function login(){
 function logout(){
 
   firebase.auth().signOut();
-  window.location("index.html");
+  window.location("https://kernion-by-4145.github.io/homepae/");
 
 }
 
