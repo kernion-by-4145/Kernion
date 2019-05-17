@@ -56,7 +56,7 @@ function login(){
 function logout(){
 
   firebase.auth().signOut();
-  window.location = "index.html"
+  window.location = "../../index.html"
 
 }
 
