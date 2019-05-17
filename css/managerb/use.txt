@@ -1,0 +1,6 @@
+apiKey: "AIzaSyCUDeDtPBxOpUDkA8ip2Wk4wg-ClDzs-k0",
+    authDomain: "frc-4145-attendence.firebaseapp.com",
+    databaseURL: "https://linworth-attendance-testing.firebaseio.com/",
+    projectId: "linworth-attendance-testing",
+    storageBucket: "linworth-attendance-testing.appspot.com",
+    messagingSenderId: "232011675887"

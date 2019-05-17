@@ -29,6 +29,7 @@ h2,pre,input, button {
 
 }
 
+
 .main-div, .loggedin-div {
   width: 20%;
   margin: 0px auto;
@@ -94,7 +95,7 @@ input#myNumber,input#nameinput {
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
 }
-button#cool,button.cool:hover, button#logout:hover {
+button#cool:hover,button.cool:hover, button#logout:hover {
   background: #fff;
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
@@ -219,4 +220,26 @@ h3{
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
 
+}
+#login-div{
+
+background-color: white;
+position: sticky;
+  
+}
+.header{
+ 
+
+ z-index: -1; 
+  background-position: center center;
+ background-size: cover;
+ -webkit-background-size: cover;
+ height: 100vh;
+  width: 100%;
+  position: absolute;
+  margin-top: -120px;
+}
+
+#email_field{
+  
 }

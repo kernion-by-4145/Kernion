@@ -1,12 +1,12 @@
 (function(){
-	
+    	var dataa = "frc-4145-attendence"
 	  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyCUDeDtPBxOpUDkA8ip2Wk4wg-ClDzs-k0",
-    authDomain: "frc-4145-attendence.firebaseapp.com",
-    databaseURL: "https://frc-4145-attendence.firebaseio.com",
-    projectId: "frc-4145-attendence",
-    storageBucket: "frc-4145-attendence.appspot.com",
+    authDomain: dataa+".firebaseapp.com",
+    databaseURL: "https://" + dataa+ ".firebaseio.com/",
+    projectId: dataa,
+    storageBucket: dataa+".appspot.com",
     messagingSenderId: "232011675887"
 
   };
@@ -27,12 +27,29 @@ alert("type in a value")
 }
 else{
     const dbRefObject = firebase.database().ref().child(currentVal);
+    const dbRaftObject = firebase.database().ref();
 
 dbRefObject.orderByChild('Name').on('value' , snap => {
     headObject.innerText = JSON.stringify(snap.val().Name, null, 3);
+    
 });
 dbRefObject.on('value' , snap => {
-    preObject.innerText = JSON.stringify(snap.val(), null, 3);
+    var nams = JSON.stringify(snap.val().Name, null, 3);
+    var coold = '},';
+    var nude = '{';
+    var rude = '}';
+   var workoutsJSON = JSON.stringify(snap.val(),null,3).replace(/"Name"/,' ').replace(nams,' ').replace(coold,' ');
+    
+   while(workoutsJSON.includes('{')||workoutsJSON.includes('}')||workoutsJSON.includes(',')||workoutsJSON.includes('"')){
+   var workoutsJSON = workoutsJSON.replace(coold,' ').replace(nude,' ').replace(rude,' ').replace(/,/,' ').replace(/"/,' ').replace(/  : /,' '); 
+    if(workoutsJSON.includes('{')||workoutsJSON.includes('},')||workoutsJSON.includes('}')||workoutsJSON.includes(',')||workoutsJSON.includes('"')){
+        console.log("oof");
+    }
+    else{
+        preObject.innerText = workoutsJSON;
+    }
+}
+
 });
 }}
 function tyo(){

@@ -1,3 +1,6 @@
+
+
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -6,11 +9,18 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("login_div").style.display = "none";
 
     var user = firebase.auth().currentUser;
-    window.location = "firebasequick.html"
+   
     if(user != null){
       firebase.auth().signOut();
       var email_id = user.email;
-      document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+      var s = email_id.replace(/@gmail.com/, '')
+      document.getElementById("user_para").innerHTML = "Welcome User : " + s;
+      if(s == "fireflightwork"){
+        window.location = "firebasequick.html"
+      }
+      else{
+        window.location = "linworthin.html"
+      }
       
 
     }
@@ -46,7 +56,7 @@ function login(){
 function logout(){
 
   firebase.auth().signOut();
-  window.location.replace("https://kernion-by-4145.github.io/Kernion/");
+  window.location = "index.html"
 
 }
 
