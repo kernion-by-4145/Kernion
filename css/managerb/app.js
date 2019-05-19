@@ -13,17 +13,63 @@
   firebase.initializeApp(config);
 
 }());
+
 function myFunction(){
 
 
     var x = document.getElementById("myNumber");
+     var name = document.getElementById("nameinput");//call the name field
     var defaultVal = x.defaultValue;
     var currentVal = x.value;
+        var defaultName = name.defaultValue;
+    var currentName = name.value;
 
 const headObject = document.getElementById('okey');
 const preObject = document.getElementById('object');
+//check if name was used
+if(defaultName != currentName){
+     
+    const dbRaftObject = firebase.database().ref().child(currentName+"/id");
+
+var newval = dbRaftObject;
+
+newval.on('value' , snap => {
+
+console.log(snap.val());
+
+
+var id = snap.val();
+
+
+const dbRefObject = firebase.database().ref().child(id);
+dbRefObject.orderByChild('Name').on('value' , snap => {
+    headObject.innerText = JSON.stringify(snap.val().Name, null, 3);
+    
+});
+dbRefObject.on('value' , snap => {
+    //parse the Json database data
+    var nams = JSON.stringify(snap.val().Name, null, 3);
+    var coold = '},';
+    var nude = '{';
+    var rude = '}';
+   var workoutsJSON = JSON.stringify(snap.val(),null,3).replace(/"Name"/,' ').replace(nams,' ').replace(coold,' ');
+    
+   while(workoutsJSON.includes('{')||workoutsJSON.includes('}')||workoutsJSON.includes(',')||workoutsJSON.includes('"')){
+   var workoutsJSON = workoutsJSON.replace(coold,' ').replace(nude,' ').replace(rude,' ').replace(/,/,' ').replace(/"/,' ').replace(/  : /,' '); 
+    if(workoutsJSON.includes('{')||workoutsJSON.includes('},')||workoutsJSON.includes('}')||workoutsJSON.includes(',')||workoutsJSON.includes('"')){
+       //check for all cases
+        console.log("oof");
+    }
+    else{
+        preObject.innerText = workoutsJSON;
+    }
+}
+
+});
+});
+} 
 if (defaultVal == currentVal){
-alert("type in a value")
+console.log("need a value");
 }
 else{
     const dbRefObject = firebase.database().ref().child(currentVal);
@@ -126,6 +172,8 @@ if(defnam == curnam){
 else{
 var newPostRef = dbReftObject.child(cuurrentVal).set({
     Name: curnam});
+var newPostRefe = dbReftObject.child(curnam).set({
+    id: cuurrentVal});
     curnam = '';
     cuurrentVal = '';
     document.getElementById('bodi').style.display = "none";
@@ -135,6 +183,6 @@ var newPostRef = dbReftObject.child(cuurrentVal).set({
     document.getElementById('bodi').style.filter = "blur(0px)";
 
 }
-
-
 }
+
+
