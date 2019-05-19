@@ -1,27 +1,15 @@
-
-
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
 
-    document.getElementById("user_div").style.display = "block";
-    document.getElementById("login_div").style.display = "none";
-
+document.getElementById('sign').style.display = "none";
+document.getElementById('dsa').style.display = "none";
+document.getElementById('signout').style.display = "block";
     var user = firebase.auth().currentUser;
-   
     if(user != null){
-      firebase.auth().signOut();
       var email_id = user.email;
-      var s = email_id.replace(/@gmail.com/, '')
+      var s = email_id.replace("@gmail.com", '')
       document.getElementById("user_para").innerHTML = "Welcome User : " + s;
-      if(s == "fireflightwork"){
-        window.location = "firebasequick.html"
-      }
-      else{
-        window.location = "linworthin.html"
-      }
-      
 
     }
 
@@ -29,13 +17,19 @@ firebase.auth().onAuthStateChanged(function(user) {
     
     // No user is signed in.
 
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("login_div").style.display = "block";
     
 
   }
+  
 });
-
+function tri(email_id){
+  if (email_id == "fireflightwork@gmail.com") {
+      window.location = "css/managerb/firebasequick.html"
+}
+else{
+  window.location = "css/managerb/index.html"
+}
+}
 function login(){
 
   var userEmail = document.getElementById("email_field").value;
@@ -48,7 +42,7 @@ function login(){
 
     window.alert("Error : " + errorMessage);
 
-    // ...
+    // ...ee
   });
 
 }
@@ -59,4 +53,9 @@ function logout(){
   window.location = "index.html"
 
 }
+function di(){
+window.location = "css/Kernion.msi"
+}
+
+
 

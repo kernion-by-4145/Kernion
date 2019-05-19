@@ -1,16 +1,32 @@
 <html>
 <head>
   <title>Firebase Login</title>
+  <link rel='icon' type='image/x-icon' href='kernion-icon.ico' />
+    <link rel='shortcut icon' type='image/x-icon' href='Kernion.ico' />
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+   <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="style.css" />
+<style type="text/css">
+    #particles-js{
+   -webkit-app-region : drag;
+}
+</style>
 </head>
+<style>
+  body {
+    overflow-x: hidden;
+  }
+</style>
 <body  id="okeyffg">
 
 <div class ="header">
   <div id="particles-js"></div></div>
+  <h2 id="xss" class="button" onclick="nassda()">X</h2>
+  <h2 id="dsa"class="button">_</h2>
 
   <div id="login_div" class="main-div">
-    <h3> Kernion Manager Login</h3>
+    <h3> Kernion Manager</h3>
     <input type="email" placeholder="Email..." id="email_field" />
     <input type="password" placeholder="Password..." id="password_field" />
 
@@ -41,7 +57,13 @@
   </script>
   <script src="index.js"></script>
 <script src="jquery-3.4.1.js"></script>
-<script src="js/particles.js"></script>
+<script src="particles.js"></script>
 <script src="js/app.js"></script>
+<script type="text/javascript" src="zap.js"></script>
+
+<script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
 </body>
 </html>
